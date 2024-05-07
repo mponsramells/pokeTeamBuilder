@@ -4,5 +4,6 @@
   <Footer />
 </template>
 
-<script>
+<script setup>
+const team = useState('team', () => []);
 </script>

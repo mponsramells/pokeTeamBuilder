@@ -1,10 +1,15 @@
 <template>
-  <div v-for="pokemon in team" :key="pokemon.id" class="grid grid-cols-1 w-full gap-4">
-    <PokemonCard :pokemon="pokemon" @open-pokemon="openPokemon" />
+  <div class="flex justify-center align-center">
+    <div class="grid grid-cols-3 gap-4">
+      <div v-for="pokemon in team" :key="pokemon.id" class="grid grid-cols-1 w-full gap-4">
+        <PokemonCard :pokemon="pokemon" @open-pokemon="openPokemon" />
+      </div>
+    </div>
   </div>
   <div v-if="displayInfo" class="w-full" >
     <PokemonInfoCard  :pokemon="pokemonInfo" @close-pokemon="closePokemon" />
   </div>
+
 </template>
 
 <script setup>
