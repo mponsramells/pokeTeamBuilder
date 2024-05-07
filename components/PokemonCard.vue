@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <button class="bg-primary w-1/2 rounded-full p-2 px-4" @click="$emit('open-pokemon', pokemon)">Voir plus</button>
+      <button class="bg-primary w-1/2 rounded-full p-2 px-4" @click="$emit('open-pokemon', pokemon)">See more</button>
       <button v-if="!team.some(p => p === pokemon)" class="bg-primary w-1/2 rounded-full p-2 px-4" @click="$emit('add-to-team', pokemon)">Add To Team</button>
       <button v-else class="bg-primary w-1/2 rounded-full p-2 px-4" @click="RemoveToTeam(pokemon)">Remove To Team</button>
     </div>

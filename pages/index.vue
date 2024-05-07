@@ -2,7 +2,7 @@
   <div class="container w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <h1 class="text-4xl font-bold mb-4">Pokemons</h1>
     <div class="relative text-gray-600">
-      <input type="search" name="search" v-model="search" @input="filterByName" placeholder="Search by name" class="bg-white h-10 px-5 pr-10 rounded-full">
+      <input type="search" name="search" v-model="search" placeholder="Search by name" class="bg-white h-10 px-5 pr-10 rounded-full">
     </div>
     <h2 class="text-2xl font-semibold mb-2">Types</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
@@ -34,11 +34,13 @@ const team = useState('team', () => []);
 const selectedType = ref(null);
 const search = ref('');
 function filterByType(type) {
-  selectedType.value = type;
+  if (selectedType.value === type) {
+    selectedType.value = null;
+  } else {
+    selectedType.value = type;
+  }
 }
-function filterByName() {
-  search.value = search.value.toLowerCase();
-}
+
 async function fetchPokemons() {
   pokemons.value = await getPokemon();
 }
